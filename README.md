@@ -6,10 +6,10 @@ A machine learning system that predicts FIFA 23 player overall ratings from play
 
 ```
 User → Flask API → Redis Cache → ML Model (Random Forest)
-                       ↓
-              Prometheus (metrics scraping)
-                       ↓
-              Grafana (dashboard visualisation)
+            ↓
+       Prometheus (metrics scraping)
+            ↓
+       Grafana (dashboard visualisation)
 ```
 
 ## Tech Stack
