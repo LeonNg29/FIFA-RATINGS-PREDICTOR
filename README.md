@@ -4,11 +4,13 @@ A machine learning system that predicts FIFA 23 player overall ratings from play
 
 ## Architecture
 
+```
 User → Flask API → Redis Cache → ML Model (Random Forest)
-↓
-Prometheus (metrics scraping)
-↓
-Grafana (dashboard visualisation)
+                       ↓
+              Prometheus (metrics scraping)
+                       ↓
+              Grafana (dashboard visualisation)
+```
 
 ## Tech Stack
 
@@ -37,7 +39,8 @@ cd FIFA-RATINGS-PREDICTOR
 ```
 
 2. Add the model file (not included in repo due to size)
-Place fifa_model.pkl in the project root
+
+> Place `fifa_model.pkl` in the project root directory before running.
 
 3. Start all services
 ```bash
