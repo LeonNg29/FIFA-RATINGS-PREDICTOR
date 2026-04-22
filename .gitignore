@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+*.pyo
+fifa_model.pkl

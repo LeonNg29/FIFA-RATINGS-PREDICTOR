@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FIFA Rating Predictor</title>
+</head>
+<body>
+    <h1>FIFA Player Rating Predictor</h1>
+    
+    <label>Pace: <input type="number" id="pace" min="1" max="99"></label><br><br>
+    <label>Shooting: <input type="number" id="shooting" min="1" max="99"></label><br><br>
+    <label>Passing: <input type="number" id="passing" min="1" max="99"></label><br><br>
+    <label>Dribbling: <input type="number" id="dribbling" min="1" max="99"></label><br><br>
+    <label>Defending: <input type="number" id="defending" min="1" max="99"></label><br><br>
+    <label>Physic: <input type="number" id="physic" min="1" max="99"></label><br><br>
+    
+    <button onclick="predict()">Predict Rating</button>
+    
+    <h2 id="result"></h2>
+
+    <script>
+        async function predict() {
+            const data = {
+                pace:      parseInt(document.getElementById('pace').value),
+                shooting:  parseInt(document.getElementById('shooting').value),
+                passing:   parseInt(document.getElementById('passing').value),
+                dribbling: parseInt(document.getElementById('dribbling').value),
+                defending: parseInt(document.getElementById('defending').value),
+                physic:    parseInt(document.getElementById('physic').value)
+            };
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            document.getElementById('result').textContent = `Predicted Rating: ${result.rating}`;
+        }
+    </script>
+</body>
+</html>
